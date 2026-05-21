@@ -1,11 +1,3 @@
-"""
-guardrails.py — Sistema de Guardrails de Segurança (Aula 10)
-
-3 camadas implementadas:
-1. Input Guard  — valida e bloqueia entradas maliciosas
-2. System Prompt Defensivo — carregado do arquivo prompts/system_prompt.txt
-3. Output Guard — verifica se a resposta está dentro do domínio
-"""
 
 import re
 import json
@@ -13,11 +5,6 @@ from typing import Tuple
 
 
 class GuardrailSystem:
-    """
-    Sistema de guardrails com 3 camadas de proteção.
-    Bloqueia prompt injection, jailbreak, leaking e entradas fora do domínio.
-    """
-
     MAX_INPUT_LENGTH = 500
 
     # Padrões de prompt injection (Aula 10)
@@ -74,12 +61,7 @@ class GuardrailSystem:
     ]
 
     def validar_input(self, texto: str) -> Tuple[bool, str]:
-        """
-        Valida a entrada do usuário.
 
-        Returns:
-            (is_safe, motivo) — True se seguro, False + motivo se bloqueado
-        """
         if not texto or not texto.strip():
             return False, "Entrada vazia"
 
@@ -100,12 +82,6 @@ class GuardrailSystem:
         return True, "ok"
 
     def validar_output(self, resposta: str) -> Tuple[bool, str]:
-        """
-        Valida a resposta gerada pelo modelo.
-
-        Returns:
-            (is_safe, motivo) — True se seguro, False + motivo se problemático
-        """
         if not resposta or not resposta.strip():
             return False, "Resposta vazia"
 
@@ -126,9 +102,5 @@ class GuardrailSystem:
         return True, "ok"
 
     def esta_no_dominio(self, texto: str) -> bool:
-        """
-        Verifica se a entrada está relacionada ao domínio de e-commerce/suporte.
-        Usado para log — não bloqueia, apenas sinaliza.
-        """
         texto_lower = texto.lower()
         return any(kw in texto_lower for kw in self.DOMAIN_KEYWORDS)

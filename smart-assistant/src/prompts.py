@@ -1,12 +1,3 @@
-"""
-prompts.py — Frameworks Profissionais de Prompt Engineering (Aula 11)
-
-Padrões aplicados:
-- Persona Pattern: assistente com identidade definida (Ana, analista sênior de CX)
-- Template Pattern: placeholders dinâmicos por tipo de solicitação
-- Recipe Pattern: instruções passo a passo estruturadas
-- CRISPE: Capacity, Role, Insight, Statement, Personality, Experiment
-"""
 
 import os
 
@@ -17,10 +8,6 @@ def carregar_system_prompt() -> str:
     with open(caminho, "r", encoding="utf-8") as f:
         return f.read()
 
-
-# ─────────────────────────────────────────────
-# TEMPLATE PATTERN — Etapa 1: Classificação
-# ─────────────────────────────────────────────
 PROMPT_CLASSIFICAR = """
 <tarefa>CLASSIFICAÇÃO DE SOLICITAÇÃO</tarefa>
 
@@ -53,9 +40,6 @@ Responda APENAS com JSON válido, sem markdown, sem ```json, somente o objeto:
 </regras>
 """
 
-# ─────────────────────────────────────────────
-# RECIPE PATTERN — Etapa 2: Processamento
-# ─────────────────────────────────────────────
 PROMPT_PROCESSAR_RECLAMACAO = """
 <tarefa>PROCESSAMENTO DE RECLAMAÇÃO</tarefa>
 
@@ -182,9 +166,6 @@ Responda APENAS com JSON válido:
 </formato_obrigatorio>
 """
 
-# ─────────────────────────────────────────────
-# CRISPE PATTERN — Etapa 3: Resposta Final
-# ─────────────────────────────────────────────
 PROMPT_RESPONDER = """
 <crispe>
   <capacity>Especialista em atendimento ao cliente com 12 anos de experiência em e-commerce</capacity>
@@ -224,7 +205,6 @@ Responda APENAS com JSON válido:
 
 
 def get_prompt_processar(tipo: str) -> str:
-    """Retorna o template correto de processamento baseado no tipo."""
     mapa = {
         "reclamacao": PROMPT_PROCESSAR_RECLAMACAO,
         "duvida": PROMPT_PROCESSAR_DUVIDA,

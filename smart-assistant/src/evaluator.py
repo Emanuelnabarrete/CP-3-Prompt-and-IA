@@ -1,13 +1,4 @@
-"""
-evaluator.py — Avaliação Automática (Aula 09)
 
-5 métricas:
-1. Acurácia de classificação
-2. Taxa de JSON válido
-3. Taxa de bloqueio (ataques)
-4. Taxa de falso positivo
-5. Consistência (mesma entrada 3x → mesma classificação)
-"""
 
 import json
 import os
@@ -23,7 +14,6 @@ from src.schemas import ClassificacaoSchema
 
 
 def count_tokens(texto: str) -> int:
-    """Conta tokens usando tiktoken (herdado do CP02)."""
     try:
         enc = tiktoken.get_encoding("cl100k_base")
         return len(enc.encode(texto))
@@ -40,9 +30,6 @@ class Evaluator:
         with open(caminho, "r", encoding="utf-8") as f:
             return json.load(f)
 
-    # ─────────────────────────────────────────
-    # MÉTRICA 1: Acurácia de classificação
-    # ─────────────────────────────────────────
     def avaliar_classificacao(self, dataset: list) -> dict:
         """Avalia se a etapa 1 classifica corretamente o tipo."""
         corretos = 0
@@ -92,9 +79,6 @@ class Evaluator:
             "detalhes": resultados
         }
 
-    # ─────────────────────────────────────────
-    # MÉTRICA 2: Taxa de JSON válido
-    # ─────────────────────────────────────────
     def avaliar_json_valido(self, dataset: list) -> dict:
         """Avalia se o pipeline retorna JSON válido validado por Pydantic."""
         validos = 0
@@ -123,9 +107,6 @@ class Evaluator:
             "total": total
         }
 
-    # ─────────────────────────────────────────
-    # MÉTRICA 3: Taxa de bloqueio
-    # ─────────────────────────────────────────
     def avaliar_bloqueio(self, attack_dataset: list) -> dict:
         """Avalia se os ataques são corretamente bloqueados."""
         bloqueados = 0
@@ -160,9 +141,6 @@ class Evaluator:
             "detalhes": resultados
         }
 
-    # ─────────────────────────────────────────
-    # MÉTRICA 4: Falsos positivos
-    # ─────────────────────────────────────────
     def avaliar_falsos_positivos(self, dataset: list) -> dict:
         """Avalia se entradas legítimas são bloqueadas incorretamente."""
         falsos_positivos = 0
@@ -192,9 +170,6 @@ class Evaluator:
             "detalhes": resultados
         }
 
-    # ─────────────────────────────────────────
-    # MÉTRICA 5: Consistência
-    # ─────────────────────────────────────────
     def avaliar_consistencia(self, dataset: list, repeticoes: int = 3) -> dict:
         """Avalia se a mesma entrada retorna a mesma classificação (N vezes)."""
         resultados = []
@@ -234,9 +209,6 @@ class Evaluator:
             "detalhes": resultados
         }
 
-    # ─────────────────────────────────────────
-    # Execução completa
-    # ─────────────────────────────────────────
     def rodar_avaliacao_completa(self) -> dict:
         """Executa todas as métricas e gera relatório."""
         base = os.path.join(os.path.dirname(__file__), "..", "data")
@@ -246,19 +218,19 @@ class Evaluator:
         test_data = self._carregar_dataset(test_path)
         attack_data = self._carregar_dataset(attack_path)
 
-        print("📊 Avaliando classificação...")
+        print("Avaliando classificação...")
         m1 = self.avaliar_classificacao(test_data)
 
-        print("📋 Avaliando JSON válido...")
+        print("Avaliando JSON válido...")
         m2 = self.avaliar_json_valido(test_data)
 
-        print("🛡 Avaliando bloqueio de ataques...")
+        print("Avaliando bloqueio de ataques...")
         m3 = self.avaliar_bloqueio(attack_data)
 
-        print("⚠️  Avaliando falsos positivos...")
+        print("Avaliando falsos positivos...")
         m4 = self.avaliar_falsos_positivos(test_data)
 
-        print("🔁 Avaliando consistência...")
+        print("Avaliando consistência...")
         m5 = self.avaliar_consistencia(test_data)
 
         metricas = {

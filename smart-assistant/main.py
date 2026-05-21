@@ -83,6 +83,11 @@ def modo_avaliacao():
     print("Gráficos salvos \n")
 
 
+def modo_avaliacao():
+    print("\n" + "=" * 60)
+    print("  📊 TechStore Smart Assistant — Modo Avaliação")
+    print("=" * 60 + "\n")
+
 if __name__ == "__main__":
     if "--avaliar" in sys.argv or "--eval" in sys.argv:
         modo_avaliacao()

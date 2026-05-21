@@ -10,27 +10,10 @@ MODEL = os.getenv("MODEL", "gpt-oss:120b")
 
 
 class LLMClient:
-    """
-    Cliente para a Ollama API.
-    Herdado e expandido do Checkpoint 02.
-    Suporta histórico de mensagens e respostas mais longas para o pipeline.
-    """
 
     def chat(self, prompt: str, system: str = "", temperature: float = 0.3,
              max_tokens: int = 512, history: list = None) -> dict:
-        """
-        Envia uma mensagem para o modelo e retorna a resposta.
 
-        Args:
-            prompt: Mensagem do usuário
-            system: System prompt
-            temperature: Temperatura (0 = determinístico, 1 = criativo)
-            max_tokens: Máximo de tokens na resposta
-            history: Lista de mensagens anteriores [{role, content}]
-
-        Returns:
-            dict com 'answer' e 'time_ms'
-        """
         url = f"{OLLAMA_HOST}/api/chat"
 
         messages = []

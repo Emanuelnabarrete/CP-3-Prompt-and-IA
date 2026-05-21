@@ -1,11 +1,4 @@
-"""
-chain.py — Pipeline Multi-Etapa (Aula 09)
 
-3 etapas com lógica condicional:
-  Etapa 1: Classificar — tipo, urgência, tema
-  Etapa 2: Processar   — lógica CONDICIONAL baseada no tipo da etapa 1
-  Etapa 3: Responder   — formatar resposta final com framework CRISPE
-"""
 
 import json
 import re
