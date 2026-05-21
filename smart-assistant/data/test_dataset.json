@@ -1,0 +1,98 @@
+[
+  {
+    "texto": "Meu produto chegou com defeito, a tela está quebrada!",
+    "tipo_esperado": "reclamacao",
+    "urgencia_esperada": "alta",
+    "keywords_resposta": ["desculpe", "troca", "reembolso", "protocolo"]
+  },
+  {
+    "texto": "Qual é o prazo de entrega para São Paulo?",
+    "tipo_esperado": "duvida",
+    "urgencia_esperada": "media",
+    "keywords_resposta": ["prazo", "entrega", "dias"]
+  },
+  {
+    "texto": "Adorei o atendimento! O produto chegou antes do prazo.",
+    "tipo_esperado": "elogio",
+    "urgencia_esperada": "baixa",
+    "keywords_resposta": ["obrigado", "satisfação", "feliz"]
+  },
+  {
+    "texto": "Vocês poderiam ter mais opções de parcelamento?",
+    "tipo_esperado": "sugestao",
+    "urgencia_esperada": "baixa",
+    "keywords_resposta": ["sugestão", "registrada", "obrigado"]
+  },
+  {
+    "texto": "Meu pedido não chegou e já faz 15 dias. Preciso resolver urgente!",
+    "tipo_esperado": "reclamacao",
+    "urgencia_esperada": "alta",
+    "keywords_resposta": ["desculpe", "investigar", "protocolo"]
+  },
+  {
+    "texto": "Como faço para trocar um produto?",
+    "tipo_esperado": "duvida",
+    "urgencia_esperada": "media",
+    "keywords_resposta": ["troca", "prazo", "como"]
+  },
+  {
+    "texto": "Fui cobrado duas vezes no cartão pelo mesmo pedido!",
+    "tipo_esperado": "reclamacao",
+    "urgencia_esperada": "alta",
+    "keywords_resposta": ["estorno", "reembolso", "urgência", "protocolo"]
+  },
+  {
+    "texto": "Quero saber se o notebook modelo X3000 está disponível",
+    "tipo_esperado": "duvida",
+    "urgencia_esperada": "media",
+    "keywords_resposta": ["disponível", "estoque", "produto"]
+  },
+  {
+    "texto": "O aplicativo de vocês poderia ter filtro por avaliação dos produtos",
+    "tipo_esperado": "sugestao",
+    "urgencia_esperada": "baixa",
+    "keywords_resposta": ["sugestão", "registrada", "obrigado"]
+  },
+  {
+    "texto": "Excelente loja! Compro aqui sempre e nunca tive problemas.",
+    "tipo_esperado": "elogio",
+    "urgencia_esperada": "baixa",
+    "keywords_resposta": ["obrigado", "fidelidade", "satisfação"]
+  },
+  {
+    "texto": "O produto veio sem manual e sem nota fiscal",
+    "tipo_esperado": "reclamacao",
+    "urgencia_esperada": "media",
+    "keywords_resposta": ["desculpe", "enviar", "protocolo"]
+  },
+  {
+    "texto": "Vocês aceitam pagamento por Pix?",
+    "tipo_esperado": "duvida",
+    "urgencia_esperada": "baixa",
+    "keywords_resposta": ["pix", "pagamento"]
+  },
+  {
+    "texto": "Recebi um produto diferente do que pedi, está errado!",
+    "tipo_esperado": "reclamacao",
+    "urgencia_esperada": "alta",
+    "keywords_resposta": ["desculpe", "correto", "troca", "protocolo"]
+  },
+  {
+    "texto": "O site de vocês poderia ser mais rápido para carregar",
+    "tipo_esperado": "sugestao",
+    "urgencia_esperada": "baixa",
+    "keywords_resposta": ["sugestão", "melhoria", "obrigado"]
+  },
+  {
+    "texto": "Qual é a política de devolução de vocês?",
+    "tipo_esperado": "duvida",
+    "urgencia_esperada": "baixa",
+    "keywords_resposta": ["devolução", "prazo", "política"]
+  },
+  {
+    "texto": "Parabéns pela entrega super rápida! Chegou em 1 dia!",
+    "tipo_esperado": "elogio",
+    "urgencia_esperada": "baixa",
+    "keywords_resposta": ["obrigado", "entrega", "satisfação"]
+  }
+]
